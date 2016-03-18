@@ -1,15 +1,9 @@
-var VideoList = () => (
+var VideoList = (props) => (
   <div className="video-list media">
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
-  </div>
+  { props.videos.map((video) => 
+    <VideoListEntry videoEntry={video} /> 
+    )}
+  </div> 
 );
 
 window.VideoList = VideoList;
