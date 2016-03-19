@@ -14,8 +14,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      videoList: exampleVideoData,
-      currentVideo: exampleVideoData[0]
+      videoList: dummyVideoList,
+      currentVideo: dummyVideo
     };
   }
 
@@ -25,10 +25,17 @@ class App extends React.Component {
     });
   }
 
+  handleSearch(videoList, currentVideo) {
+    this.setState({
+      videoList: videoList,
+      currentVideo: currentVideo
+    });
+  }
+
   render() {
     return (
       <div>
-        <Nav />
+        <Nav onUserSearch={(this.handleSearch.bind(this))}/>
         <div className="col-md-7">
           <VideoPlayer currentVideo={this.state.currentVideo}/>
       </div>
@@ -42,3 +49,5 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App/>, document.getElementById('app'));
+
+
