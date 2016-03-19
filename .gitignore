@@ -7,4 +7,4 @@ client/lib/jquery
 client/lib/lodash
 
 ## API keys ##
-client/config/youtube.js
+client/config/youtube.config.js
