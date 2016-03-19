@@ -9,8 +9,7 @@ var searchYouTube = (options, callback) => {
       callback(window.dummyVideoList, window.dummyVideo);
     },
     success: function(data) {
-      var debounced = _.debounce(callback, 2000);
-      debounced(data.items, data.items[0]); //returned data.items => video list ; data.items[0] = currentVideo
+      callback(data.items, data.items[0]); //returned data.items => video list ; data.items[0] = currentVideo
       console.log('success');
     },
     error: function(error) {
@@ -21,7 +20,7 @@ var searchYouTube = (options, callback) => {
 
 // https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=cats&type=video&videoEmbeddable=true&key={YOUR_API_KEY}
 //options { max: 5, query: ' , key: window.YOUTUBE_API_KEY}
-window.searchYouTube = searchYouTube;
+window.searchYouTube = _.debounce(searchYouTube, 400);
 
 window.createDummyVideos = function(number) {
   var list = [];

@@ -1,5 +1,6 @@
 var VideoPlayer = (props) => { 
   return (
+    !props.currentVideo ? <div>Loading...Please wait.</div> :
     <div className="video-player">
       <div className="embed-responsive embed-responsive-16by9">
         <iframe className="embed-responsive-item" src={`https://www.youtube.com/embed/${props.currentVideo.id.videoId}?autoplay=1`}  allowFullScreen></iframe>
